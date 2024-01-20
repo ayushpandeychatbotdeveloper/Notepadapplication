@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: serif;
+            display: flex;
+        }
+
+        .column1 {
+            flex: 1;
+            padding: 10px;
+            background-color: dodgerblue;
+            align-items: center;
+            height: 100vh; /* Should be removed. Only for demonstration */
+        }
+
+        .column2 {
+            flex: 3;
+            padding: 10px;
+            display: flex;
+            color: transparent;
+            align-items: center;
+            height: 100vh; /* Should be removed. Only for demonstration */
+        }
+
+        button {
+            padding: 20px;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        option {
+            padding: 30px;
+            font-size: 20px;
+            color: black;
+        }
+
+        #fontsizechange {
+            padding: 14px;
+            font-size: 20px;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #fontfamily1 {
+            padding: 10px;
+            font-size: 20px;
+            color: black;
+            border-radius: 5px;
+        }
+
+        input {
+            padding: 14px;
+            font-size: 20px;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #label1 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        #textparagraph {
+            color: black;
+        }
+        #openButton
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="column1" >
+        <label id="label1"> write what you want to write here</label>
+     <br>
+        <input type="text" name="" id="inputtypetext1">
+         <button class="buttonContainer" onclick="changetext()">Change Text</button><br>
+        <button class="buttonContainer">  <label id="fontsize">Change fontSize </label></button>
+        <select id="fontsizechange" onchange="changefontsize()">
+            <option value="12px">12px</option>
+            <option value="14px">14px</option>
+            <option value="16px">16px</option>
+            <option value="18px">18px</option>
+            <option value="20px">20px</option>
+            <option value="22px">22px</option>
+            <option value="24px">24px</option>
+            <option value="26px">26px</option>
+            <option value="28px">28px</option>
+            <option value="30px">30px</option>
+            <option value="32px">32px</option>
+            <option value="34px">34px</option>
+            <option value="36px">36px</option>
+        </select><br>
+        <button class="buttonContainer">  <label id="fontfamily">Change font-family </label></button>
+        <select id="fontfamily1" onchange="changefontfamily()">
+            <option value="sans-serif">Sans-serif</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Arial">Arial</option>
+        </select>
+
+        
+            
+            <!-- <button class="buttonContainer" onclick="changebackgroundcolor()"><input type="color" id="tcolor">Change Background Color</button> -->
+<button class="buttonContainer" onclick="changebackgroundcolor()">Change Background Color</button>
+
+<button class="buttonContainer" onclick="italicchange()">Italic</button>
+            <button class="buttonContainer" id="closeButton" onclick="closeModal()">X</button>
+ <button class="buttonContainer" id="openButton" onclick="openModal()">Open Modal</button>
+        <button class="buttonContainer" id="bold" onclick="bold()">Bold</button>
+            <button class="buttonContainer" id="unbold" onclick="unbold()">UnBold</button>
+    </div>
+    <div class="column2" id="a">
+        <div id="textparagraph">Ayodhya Ram Mandir is built in the Nagara style of temple architecture. The temple is built using pink sandstone. The height of the temple is 161 feet, and it has three floors, each with a different purpose. The mandir is surrounded by a large courtyard and has several smaller shrines dedicated to other Hindu deities.</div>
+    </div>
+
+    <script type="text/javascript">
+        function changetext() {
+            var input = document.getElementById('inputtypetext1').value;
+            document.getElementById("textparagraph").innerHTML = input;
+        }
+
+        function changefontsize() {
+            var newfont = document.getElementById('fontsizechange').value;
+            document.getElementById("textparagraph").style.fontSize = newfont;
+        }
+
+        function changefontfamily() {
+            var fontf = document.getElementById('fontfamily1').value;
+            document.getElementById("textparagraph").style.fontFamily = fontf;
+        }
+
+        function changebackgroundcolor()
+        {
+            var changebackground=prompt("enter your color");
+            document.getElementById("a").style.backgroundColor=changebackground;
+        }
+
+        function italicchange()
+        {
+            var u=document.getElementById("textparagraph");
+            u.style.fontStyle="italic";
+        }
+
+
+        function closeModal()
+        {
+            document.getElementById("a").style.display='none';
+                  document.getElementById("openButton").style.display='block';
+        }
+
+         function openModal()
+        {
+            document.getElementById("a").style.display='flex';
+            document.getElementById("openButton").style.display='none';
+        }
+
+       
+        function bold() {
+    var textParagraph = document.getElementById("textparagraph");
+    textParagraph.style.fontWeight = "bold";
+}
+ function unbold() {
+    var textParagraph = document.getElementById("textparagraph");
+    textParagraph.style.fontWeight = "normal";
+}
+
+    </script>
+</body>
+</html>
